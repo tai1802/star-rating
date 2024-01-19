@@ -10,6 +10,10 @@
 	};
 
 	const onMouseLeave = () => (indexStarHover = undefined);
+
+	const onClickStar = (event: CustomEvent) => {
+		alert(event.detail);
+	};
 </script>
 
 <div class="flex flex-row gap-2 w-fit" on:mouseleave={onMouseLeave} role="presentation">
@@ -17,12 +21,19 @@
 		{#if ratingValue - index < 1}
 			<StarIcon
 				{index}
+				{indexStarHover}
 				percent={(ratingValue - index) * 100}
 				on:hover={onHoverStar}
-				{indexStarHover}
+				on:click={onClickStar}
 			/>
 		{:else}
-			<StarIcon {index} percent={100} on:hover={onHoverStar} {indexStarHover} />
+			<StarIcon
+				{index}
+				{indexStarHover}
+				percent={100}
+				on:hover={onHoverStar}
+				on:click={onClickStar}
+			/>
 		{/if}
 	{/each}
 </div>

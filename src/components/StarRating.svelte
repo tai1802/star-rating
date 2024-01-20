@@ -1,7 +1,7 @@
 <script lang="ts">
 	import StarIcon from './StarIcon.svelte';
 
-	export let ratingValue: number = 4.8;
+	export let ratingValue: number = 4.35;
 
 	let indexStarHover: number | undefined;
 
